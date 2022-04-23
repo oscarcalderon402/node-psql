@@ -17,6 +17,7 @@ const LocalStrategy = new Strategy(
       if (!isMatch) {
         done(boom.unauthorized(), false);
       }
+      user.dataValues.password = undefined;
       done(null, user);
     } catch (error) {
       done(error, false);
